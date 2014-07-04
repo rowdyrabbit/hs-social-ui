@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        window.onload = function() {
+            var accessCode = getParameterByName('code');
+
+            window.location.replace("http://localhost:9002/#/twitter/list?token=" + accessCode);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
